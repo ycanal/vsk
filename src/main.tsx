@@ -6,10 +6,16 @@ import { BrowserRouter } from "react-router";
 
 import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
-)
+const root = document.getElementById('root')
+
+if (root) {
+  createRoot(root).render(
+    <StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StrictMode>,
+  )
+} else {
+  alert("Element root not found !")
+}

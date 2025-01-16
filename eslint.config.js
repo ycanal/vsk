@@ -13,12 +13,16 @@ export default tseslint.config(
         extends: [
             js.configs.recommended,
             importPlugin.flatConfigs.recommended,
-            ...tseslint.configs.recommended
+            tseslint.configs.strictTypeChecked,
+            tseslint.configs.stylisticTypeChecked,
         ],
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
             ecmaVersion: 2020,
             globals: globals.browser,
+            parserOptions: {
+                projectService: true
+            }
         },
         plugins: {
             'react-hooks': reactHooks,

@@ -1,38 +1,35 @@
 import './App.css'
 
-import { useState } from 'react'
+import { ComponentType, lazy as rlazy, LazyExoticComponent } from 'react'
+import { Route, Routes } from 'react-router'
 
-import viteLogo from '/vite.svg'
+import AuthenticatedPage from './components/AuthenticatedPage.tsx'
 
-import reactLogo from './assets/react.svg'
+function lazy<T extends ComponentType<unknown>>(
+    load: () => Promise<{ default: T }>,
+): LazyExoticComponent<T> {
+    return rlazy(() => Promise.all([
+        load(),
+        new Promise(resolve => setTimeout(resolve, 2000))
+    ])
+        .then(([moduleExports]) => moduleExports)
+    );
+}
 
-function App() {
-    const [count, setCount] = useState(0)
+const Home = lazy(() => import("./pages/Home.tsx"))
+const About = lazy(() => import("./pages/About.tsx"))
+const Login = lazy(() => import("./pages/Login.tsx"))
+
+export default function App() {
 
     return (
-        <>
-            <div>
-                <a href="https://vite.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
-        </>
+        <Routes>
+            <Route element={<AuthenticatedPage />}>
+                <Route index element={<Home />} />
+                <Route path='about' element={<About />} />
+                <Route path='login' element={<Login />} />
+            </Route>
+        </Routes>
     )
 }
 
-export default App

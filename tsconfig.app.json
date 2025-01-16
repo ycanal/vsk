@@ -9,7 +9,6 @@
 
     "paths": {
       "@": ["./src"],
-      "/": ["./public/"],
     },
 
     /* Bundler mode */
