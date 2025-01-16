@@ -1,5 +1,12 @@
-import React from "react";
+import { use } from "react";
+
+import { AuthenticationContext } from "../AuthenticationContext.ts";
 
 export default function About() {
-    return (<div>About</div>)
+    const authStatus = use(AuthenticationContext)
+
+    return (<div>
+        <span>{authStatus.user}</span>
+        About
+    </div>)
 }
