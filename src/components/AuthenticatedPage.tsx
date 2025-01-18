@@ -1,8 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { Link, Outlet } from "react-router";
 
-import { AuthenticationContext } from "../AuthenticationContext.ts";
-
+import { AuthenticationContext } from "@/AuthenticationContext";
 
 export default function AuthenticatedPage() {
     useEffect(() => {

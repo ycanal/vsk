@@ -5,14 +5,12 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import reactCompiler from 'eslint-plugin-react-compiler'
-import importPlugin from 'eslint-plugin-import';
 
 export default tseslint.config(
     { ignores: ['dist'] },
     {
         extends: [
             js.configs.recommended,
-            importPlugin.flatConfigs.recommended,
             tseslint.configs.strictTypeChecked,
             tseslint.configs.stylisticTypeChecked,
         ],

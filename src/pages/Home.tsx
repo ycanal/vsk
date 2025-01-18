@@ -1,7 +1,10 @@
-import React from "react";
+import logo from "/vite.svg"
 
 export default function Home() {
     return (
-        <div>Home !</div>
+        <div>
+            <img src={logo} />
+            <span>Home !</span>
+        </div>
     )
 }
