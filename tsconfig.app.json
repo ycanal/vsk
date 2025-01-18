@@ -10,7 +10,7 @@
     /* Bundler mode */
     "paths": {
       "@/*": ["./src/*"],
-      "/*": ["./public/*"],
+      "/*": ["./public/*"]
     },
 
     "moduleResolution": "bundler",
