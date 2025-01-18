@@ -9,13 +9,13 @@ import App from './App.tsx'
 const root = document.getElementById('root')
 
 if (root) {
-  createRoot(root).render(
-    <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </StrictMode>,
-  )
+    createRoot(root).render(
+        <StrictMode>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </StrictMode>,
+    )
 } else {
-  alert("Element root not found !")
+    alert("Element root not found !")
 }

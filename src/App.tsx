@@ -1,5 +1,3 @@
-import './App.css'
-
 import { ComponentType, lazy as rlazy, LazyExoticComponent } from 'react'
 import { Route, Routes } from 'react-router'
 

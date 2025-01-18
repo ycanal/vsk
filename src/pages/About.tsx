@@ -1,6 +1,6 @@
 import { use } from "react";
 
-import { AuthenticationContext } from "../AuthenticationContext.ts";
+import { AuthenticationContext } from "@/AuthenticationContext";
 
 export default function About() {
     const authStatus = use(AuthenticationContext)
